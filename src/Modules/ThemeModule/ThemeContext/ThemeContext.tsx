@@ -4,18 +4,13 @@ import { ThemeProviderProps } from './ThemeProviderProps';
 import { getThemType } from '../utils/env';
 import { ThemeMetadataType } from './ThemeMetadata';
 import { ThemeType } from './ThemeModel';
-import { ThemesMetadata } from '../../../Theme';
 
-const ThemeContext = React.createContext<ThemeContextProps>({
-    themeType: 'DefaultTheme',
-    displayName: ThemesMetadata['DefaultTheme']?.displayName,
-    themeMetadataType: ThemesMetadata
-} as ThemeContextProps);
+const ThemeContext = React.createContext<ThemeContextProps>({} as ThemeContextProps);
 
 export const ThemeProvider = (props: ThemeProviderProps): ReactElement => {
-    const { children } = props
+    const { children, themesMetadata } = props
     const [currentTheme, setCurrentTheme] = React.useState<ThemeType>(getThemType());
-    const currentThemesMetadata: ThemeMetadataType = ThemesMetadata[currentTheme];
+    const currentThemesMetadata: ThemeMetadataType = themesMetadata[currentTheme];
 
     const ThemeComponent = currentThemesMetadata.themeComponent
 
@@ -24,7 +19,7 @@ export const ThemeProvider = (props: ThemeProviderProps): ReactElement => {
             themeType: currentTheme,
             displayName: currentThemesMetadata?.displayName,
             setCurrentTheme,
-            themeMetadataType: ThemesMetadata
+            themeMetadataType: themesMetadata
         }}>
             <Suspense fallback={null}>
                 <ThemeComponent />

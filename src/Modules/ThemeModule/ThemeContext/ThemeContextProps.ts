@@ -4,7 +4,7 @@ import { ThemeMetadataType } from "./ThemeMetadata";
 
 export type ThemeContextProps = {
     themeType: ThemeType;
-    displayName: string
     setCurrentTheme: Dispatch<SetStateAction<ThemeType>>
     themeMetadataType: Record<ThemeType, ThemeMetadataType>
+    displayName: string
   }
