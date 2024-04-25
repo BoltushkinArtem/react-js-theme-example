@@ -1,5 +1,5 @@
 import React from "react";
-import { ThemeMetadataType } from "../../ThemeContext";
+import { ThemeMetadataType } from "../../Modules/ThemeModule";
 
 const ThemeComponent = React.lazy(() => import("./OneTheme"));
 

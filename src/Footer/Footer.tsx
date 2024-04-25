@@ -1,5 +1,5 @@
-import React, { ReactElement } from "react";
-import { ThemeMetadataType, ThemeType, useTheme } from "../Theme";
+import { ReactElement } from "react";
+import { ThemeMetadataType, ThemeType, useTheme } from "../Modules/ThemeModule";
 
 export const Footer = (): ReactElement => {
     const { themeType, displayName, setCurrentTheme, themeMetadataType } = useTheme()

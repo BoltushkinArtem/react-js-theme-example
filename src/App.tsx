@@ -1,8 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { ThemeProvider } from './Theme';
 import { Footer } from './Footer';
+import { ThemeProvider } from './Modules/ThemeModule';
 
 function App() {
   return (
