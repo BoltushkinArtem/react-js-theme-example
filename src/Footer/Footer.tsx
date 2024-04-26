@@ -1,17 +1,16 @@
 import { ReactElement } from "react";
-import { ThemeMetadataType, ThemeType, useTheme } from "../Modules/ThemeModule";
+import { ThemeMetadataType, useTheme } from "../Modules/ThemeModule";
 
 export const Footer = (): ReactElement => {
-    const { themeType, displayName, setCurrentTheme, themeMetadataType } = useTheme()
+    const { currentTheme, setCurrentTheme, themeDisplayName, themeMetadata } = useTheme()
 
     return (
         <>
-            <>Theme type is '{themeType}' - '{displayName}'</>
+            <>Theme type is '{currentTheme}' - '{themeDisplayName}'</>
             {
-                Object.keys(themeMetadataType)?.map(theme => {
-                    const themeType: ThemeType = theme as ThemeType
-                    const themesMetadata: ThemeMetadataType = themeMetadataType[themeType];
-                    return <input key={theme} type="button" value={themesMetadata?.displayName} onClick={_ => setCurrentTheme(themeType)}/>
+                Object.keys(themeMetadata)?.map(theme => {
+                    const themesMetadata: ThemeMetadataType = themeMetadata[theme];
+                    return <input key={theme} type="button" value={themesMetadata?.displayName} onClick={_ => setCurrentTheme(theme)}/>
                 })
             }
         </>

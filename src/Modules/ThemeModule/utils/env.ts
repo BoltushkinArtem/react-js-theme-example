@@ -1,8 +1,9 @@
-import { ThemeType, isThemeType } from ".."
-
-
-export const getThemType = (): ThemeType => {
+export const getThemName = (themeNames: string[]): string => {
     const themeName = process.env.REACT_APP_THEME_NAME
     
-    return isThemeType(themeName) ? themeName as ThemeType : 'DefaultTheme'
+    return !themeName?.toString()?.length
+        ? themeNames[0]
+        : themeNames.includes(themeName) 
+            ? themeName
+            : themeNames[0]
 }
