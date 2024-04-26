@@ -25,3 +25,7 @@ yarn-error.log*
 
 # vscode debug config
 .vscode
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

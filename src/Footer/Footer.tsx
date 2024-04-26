@@ -10,7 +10,7 @@ export const Footer = (): ReactElement => {
             {
                 Object.keys(themeMetadata)?.map(theme => {
                     const themesMetadata: ThemeMetadataType = themeMetadata[theme];
-                    return <input key={theme} type="button" value={themesMetadata?.displayName} onClick={_ => setCurrentTheme(theme)}/>
+                    return <input data-test-id={`button-${theme}`} key={theme} type="button" value={themesMetadata?.displayName} onClick={_ => setCurrentTheme(theme)}/>
                 })
             }
         </>
