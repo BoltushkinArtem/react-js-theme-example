@@ -6,8 +6,12 @@ import { ThemeProvider } from './Modules/ThemeModule';
 import { ThemesMetadata } from './Theme';
 
 function App() {
+  const defaultThemeName = process.env.REACT_APP_THEME_NAME
   return (
-    <ThemeProvider themesMetadata={ThemesMetadata}>
+    <ThemeProvider
+      themesMetadata={ThemesMetadata}
+      defaultThemeName={defaultThemeName}
+    >
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
